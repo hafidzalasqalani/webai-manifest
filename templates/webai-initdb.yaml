@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: webai-migrate
+  namespace: zeroai
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrate
+          image: hafidzalasqalani/webai:latest
+          envFrom:
+            - configMapRef:
+                name: env
+          command: ["python", "manage.py", "migrate", "--noinput"]
+      restartPolicy: OnFailure

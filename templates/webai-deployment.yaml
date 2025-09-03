@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\hafid\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert -c -o zeroai --namespace zeroai
+    kompose.version: 1.37.0 (fb0539e64)
+  labels:
+    io.kompose.service: webai
+  name: webai
+  namespace: zeroai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: webai
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\hafid\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert -c -o zeroai --namespace zeroai
+        kompose.version: 1.37.0 (fb0539e64)
+      labels:
+        io.kompose.service: webai
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: env
+          image: hafidzalasqalani/webai:latest
+          name: app-webai
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+      restartPolicy: Always
