@@ -1,8 +1,0 @@
-apiVersion: v1
-data:
-  token: ZXlKaElqb2lZV1l3WVdVeFlUUmhZbUk0TldZM1pEZ3pOVEEyWWprNE5UZG1ZMlJqTnpRaUxDSjBJam9pTWpsaE1EWXhZakl0TUdSak9DMDBNR1ppTFdKa1l6UXRaR000WWpabVlUWXpaR0poSWl3aWN5STZJazR5VG0xYVYxa3hXWHBuZEUxNlNtdFplVEF3V1ZkWmVFeFhTWGROZW1OMFdrZFZNVTU2YTNwTmFsVXlUa2RKTUNKOQo=
-kind: Secret
-metadata:
-  name: tunnel-token
-  namespace: zeroai
-type: Opaque
