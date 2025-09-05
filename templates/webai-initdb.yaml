@@ -12,5 +12,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: env
+            - secretRef:
+                name: env-secret          
           command: ["python", "manage.py", "migrate", "--noinput"]
       restartPolicy: OnFailure
