@@ -25,6 +25,8 @@ spec:
         - envFrom:
             - configMapRef:
                 name: env
+            - secretRef:
+                name: env-secret
           image: hafidzalasqalani/webai:latest
           name: app-webai
           ports:
