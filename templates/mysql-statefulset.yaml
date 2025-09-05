@@ -41,13 +41,18 @@ spec:
             - mountPath: /var/lib/mysql
               name: mysql-data
       restartPolicy: Always
-  volumeClaimTemplates:
-    - metadata:
-        name: mysql-data
-        labels:
-          io.kompose.service: mysql-claim0
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 10Gi
+      volumes:
+        - name: mysql-data
+          hostPath:
+            path: /mnt/data/mysql  # path di node, ganti sesuai kebutuhan
+            type: DirectoryOrCreat
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: mysql-data
+  #       labels:
+  #         io.kompose.service: mysql-claim0
+  #     spec:
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 10Gi
