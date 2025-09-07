@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webai
+  namespace: argocd
+  annotations:
+    # Daftar image yang dipantau
+    argocd-image-updater.argoproj.io/image-list: webai=hafidzalasqalani/webai:~1
+
+    # Metode update -> commit ke repo Git
+    argocd-image-updater.argoproj.io/write-back-method: git
+
+    # Bisa atur strategy, misalnya ambil versi terbaru
+    argocd-image-updater.argoproj.io/webai.update-strategy: latest
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hafidzalasqalani/webai-manifest.git
+    path: .
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
