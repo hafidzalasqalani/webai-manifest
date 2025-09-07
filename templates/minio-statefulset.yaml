@@ -44,13 +44,18 @@ spec:
             - mountPath: /data
               name: minio-data
       restartPolicy: Always
-  volumeClaimTemplates:
-    - metadata:
-        name: minio-data
-        labels:
-          io.kompose.service: minio-claim0
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+      volumes:
+        - name: minio-data
+          hostPath:
+            path: /mnt/data/minio  # path di node, ganti sesuai kebutuhan
+            type: DirectoryOrCreate
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: minio-data
+  #       labels:
+  #         io.kompose.service: minio-claim0
+  #     spec:
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 1Gi

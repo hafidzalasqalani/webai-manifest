@@ -36,13 +36,18 @@ spec:
             - mountPath: /data
               name: redis-data
       restartPolicy: Always
-  volumeClaimTemplates:
-    - metadata:
-        name: redis-data
-        labels:
-          io.kompose.service: redis-claim0
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 100Mi
+      volumes:
+        - name: redis-data
+          hostPath:
+            path: /mnt/data/redis  # path di node, ganti sesuai kebutuhan
+            type: DirectoryOrCreate
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: redis-data
+  #       labels:
+  #         io.kompose.service: redis-claim0
+  #     spec:
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 100Mi
