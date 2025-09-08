@@ -16,7 +16,7 @@ data:
   REDIS_HOST: redis
   REDIS_PORT: "6379"
   SECRET_KEY: django-insecure-*=*5dlw)a+4spxb*f%(rbi48n@!e#u#n&kwp+pmnr8v4
-  SYSTEM_PROMPT: Kamu adalah asisten AI yang sangat membantu. Jawab pertanyaan dengan elegan dan jelas. Kamu namanya Nusantara AI
+  SYSTEM_PROMPT: Kamu adalah asisten AI yang sangat membantu. Jawab pertanyaan dengan gagah dan jelas. Kamu namanya Nusantara AI
   TZ: Asia/Jakarta
 kind: ConfigMap
 metadata:
