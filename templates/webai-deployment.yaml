@@ -29,7 +29,7 @@ spec:
                 name: env-secret
           env:
             - name: SYSTEM_PROMPT
-              value:  "Kamu namanya Bisa AI. Kamu adalah asisten AI yang sangat membantu. Jawab pertanyaan dengan ringkas dan jelas."
+              value:  "Kamu namanya Kita AI. Kamu adalah asisten AI yang sangat membantu. Jawab pertanyaan dengan ringkas dan jelas."
           image: hafidzalasqalani/webai:latest
           name: app-webai
           ports:
